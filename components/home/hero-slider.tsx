@@ -76,7 +76,10 @@ export function HeroSlider({
 
   return (
     <section
-      className={cn("relative w-full bg-[hsl(var(--foreground)/0.04)]", className)}
+      className={cn(
+        "relative w-full overflow-hidden rounded-[14px] bg-[hsl(var(--foreground)/0.04)]",
+        className
+      )}
       aria-roledescription="carousel"
     >
       <div
@@ -112,7 +115,7 @@ export function HeroSlider({
                     {slide.badge}
                   </span>
                 )}
-                <h2 className="mb-5 text-4xl font-bold capitalize leading-[1.13] tracking-tight sm:text-5xl lg:text-6xl">
+                <h2 className="mb-5 text-4xl font-medium capitalize leading-[1.13] tracking-tight sm:text-5xl lg:text-6xl">
                   {slide.heading}
                 </h2>
                 {slide.text && (

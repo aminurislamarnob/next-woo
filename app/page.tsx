@@ -26,7 +26,9 @@ import { heroSlides } from "@/components/home/hero-slides";
 export default function Home() {
   return (
     <>
-      <HeroSlider slides={heroSlides} />
+      <div className="mx-auto my-10 max-w-7xl px-6 lg:px-8">
+        <HeroSlider slides={heroSlides} />
+      </div>
       <Section>
       <Container>
         <main className="space-y-6">
