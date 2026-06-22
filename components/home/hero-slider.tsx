@@ -112,7 +112,7 @@ export function HeroSlider({
                     {slide.badge}
                   </span>
                 )}
-                <h2 className="mb-5 text-4xl font-bold uppercase leading-[1.13] tracking-tight sm:text-5xl lg:text-6xl">
+                <h2 className="mb-5 text-4xl font-bold capitalize leading-[1.13] tracking-tight sm:text-5xl lg:text-6xl">
                   {slide.heading}
                 </h2>
                 {slide.text && (
