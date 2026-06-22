@@ -111,7 +111,7 @@ export function HeroSlider({
             <div className="relative z-10 mx-auto flex h-full max-w-[1520px] items-center justify-start px-6 sm:px-10">
               <div className="max-w-[500px] text-left text-white">
                 {slide.badge && (
-                  <span className="mb-5 inline-flex rounded-[0_12px_0_12px] bg-[#f7dfbb] px-3 py-2 text-[13px] font-medium text-[#605442]">
+                  <span className="mb-5 inline-flex rounded-[0_12px_0_12px] bg-hero-badge px-3 py-2 text-[13px] font-medium text-hero-badge-foreground">
                     {slide.badge}
                   </span>
                 )}
