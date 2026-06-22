@@ -15,8 +15,7 @@ import { FooterNewsletter } from "@/components/layout/footer-newsletter";
 import { footerMenu } from "@/menu.config";
 import { siteConfig } from "@/site.config";
 import Logo from "@/public/logo.svg";
-
-const paymentMethods = ["PayPal", "VISA", "DISCOVER", "Mastercard", "AMEX"];
+import WeAccept from "@/public/we-accept.png";
 
 export function Footer() {
   const { socials } = siteConfig;
@@ -30,8 +29,8 @@ export function Footer() {
 
   return (
     <footer className="border-t bg-muted/30">
-      <Section>
-        <Container className="grid gap-10 lg:grid-cols-[1.6fr_1fr_1fr_1fr_1.4fr] not-prose">
+      <Section className="pb-0">
+        <Container className="max-w-7xl px-6 lg:px-8 grid gap-10 lg:grid-cols-[1.6fr_1fr_1fr_1fr_1.4fr] not-prose">
           {/* Brand / contact */}
           <div className="flex flex-col gap-5">
             <Link href="/" className="flex items-center gap-2">
@@ -108,26 +107,23 @@ export function Footer() {
             <FooterNewsletter />
             <div className="mt-2">
               <h6 className="mb-2 text-sm font-bold">We Accept</h6>
-              <div className="flex flex-wrap items-center gap-2">
-                {paymentMethods.map((method) => (
-                  <span
-                    key={method}
-                    className="rounded border bg-background px-2 py-1 text-[10px] font-semibold tracking-wide text-muted-foreground"
-                  >
-                    {method}
-                  </span>
-                ))}
-              </div>
+              <Image
+                src={WeAccept}
+                alt="Accepted payment methods: Visa, Mastercard, Maestro, American Express. Powered by Stripe."
+                className="h-auto w-full max-w-[240px]"
+              />
             </div>
           </div>
         </Container>
 
-        <Container className="border-t not-prose">
-          <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} {siteConfig.site_name}. All rights
-            reserved.
-          </p>
-        </Container>
+        <div className="border-t">
+          <Container className="max-w-7xl px-6 lg:px-8 not-prose">
+            <p className="text-sm text-muted-foreground">
+              &copy; {new Date().getFullYear()} {siteConfig.site_name}. All
+              rights reserved.
+            </p>
+          </Container>
+        </div>
       </Section>
     </footer>
   );
