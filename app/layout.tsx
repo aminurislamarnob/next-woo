@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { Inter as FontSans } from "next/font/google";
+import { Outfit as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import { CartProvider } from "@/components/shop";
