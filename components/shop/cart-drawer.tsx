@@ -18,7 +18,12 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 
-export function CartDrawer() {
+interface CartDrawerProps {
+  /** "icon" renders a compact icon button, "labeled" shows an icon with a "Cart" label. */
+  variant?: "icon" | "labeled";
+}
+
+export function CartDrawer({ variant = "icon" }: CartDrawerProps) {
   const {
     cart,
     isOpen,
@@ -35,15 +40,31 @@ export function CartDrawer() {
   return (
     <Sheet open={isOpen} onOpenChange={(open) => (open ? openCart() : closeCart())}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative">
-          <ShoppingCart className="h-5 w-5" />
-          {itemCount > 0 && (
-            <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center">
-              {itemCount > 99 ? "99+" : itemCount}
+        {variant === "labeled" ? (
+          <button
+            type="button"
+            className="flex items-center gap-2 text-foreground outline-none"
+          >
+            <span className="relative">
+              <ShoppingCart className="h-6 w-6" strokeWidth={1.5} />
+              <span className="absolute -top-2 -right-2 h-4 min-w-4 px-1 rounded-full bg-brand text-brand-foreground text-[10px] font-medium flex items-center justify-center">
+                {itemCount > 99 ? "99+" : itemCount}
+              </span>
             </span>
-          )}
-          <span className="sr-only">Open cart</span>
-        </Button>
+            <span className="text-sm font-medium">Cart</span>
+            <span className="sr-only">Open cart</span>
+          </button>
+        ) : (
+          <Button variant="ghost" size="icon" className="relative">
+            <ShoppingCart className="h-5 w-5" />
+            {itemCount > 0 && (
+              <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center">
+                {itemCount > 99 ? "99+" : itemCount}
+              </span>
+            )}
+            <span className="sr-only">Open cart</span>
+          </Button>
+        )}
       </SheetTrigger>
 
       <SheetContent className="flex flex-col w-full sm:max-w-lg">
