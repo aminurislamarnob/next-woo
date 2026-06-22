@@ -1,13 +1,9 @@
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
-const ACCENT = "#80B500";
+import type { ProductCategory } from "@/lib/woocommerce.d";
 
-export interface MenuCategory {
-  id: number;
-  name: string;
-  slug: string;
-}
+export type MenuCategory = Pick<ProductCategory, "id" | "name" | "slug">;
 
 interface CategoriesMenuProps {
   categories: MenuCategory[];
@@ -22,12 +18,7 @@ export function CategoriesMenu({ categories }: CategoriesMenuProps) {
         aria-haspopup="true"
       >
         {/* Underline wipes in left -> right on hover, like the reference theme */}
-        <span
-          className="bg-[length:0%_1px] bg-left-bottom bg-no-repeat transition-[background-size] duration-100 ease-linear group-hover:bg-[length:100%_1px] group-focus-within:bg-[length:100%_1px]"
-          style={{
-            backgroundImage: `linear-gradient(to right, ${ACCENT}, ${ACCENT})`,
-          }}
-        >
+        <span className="bg-[linear-gradient(to_right,hsl(var(--brand)),hsl(var(--brand)))] bg-[length:0%_1px] bg-left-bottom bg-no-repeat transition-[background-size] duration-100 ease-linear group-hover:bg-[length:100%_1px] group-focus-within:bg-[length:100%_1px]">
           Categories
         </span>
         <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform duration-150 group-hover:rotate-180" />
@@ -51,8 +42,7 @@ export function CategoriesMenu({ categories }: CategoriesMenuProps) {
               <Link
                 key={category.id}
                 href={`/shop/category/${category.slug}`}
-                className="block px-[30px] py-2.5 text-sm outline-none transition-colors hover:text-[var(--accent-color)] focus-visible:text-[var(--accent-color)]"
-                style={{ ["--accent-color" as string]: ACCENT }}
+                className="block px-[30px] py-2.5 text-sm outline-none transition-colors hover:text-brand focus-visible:text-brand"
               >
                 {category.name}
               </Link>

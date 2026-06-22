@@ -3,8 +3,6 @@
 import * as React from "react";
 import { Send } from "lucide-react";
 
-const ACCENT = "#80B500";
-
 export function FooterNewsletter() {
   const [email, setEmail] = React.useState("");
   const [submitted, setSubmitted] = React.useState(false);
@@ -32,16 +30,13 @@ export function FooterNewsletter() {
         <button
           type="submit"
           aria-label="Subscribe"
-          className="flex w-12 flex-shrink-0 items-center justify-center text-white transition-opacity hover:opacity-90"
-          style={{ backgroundColor: ACCENT }}
+          className="flex w-12 flex-shrink-0 items-center justify-center bg-brand text-brand-foreground transition-colors hover:bg-brand-hover"
         >
           <Send className="h-4 w-4" />
         </button>
       </div>
       {submitted && (
-        <p className="mt-2 text-xs" style={{ color: ACCENT }}>
-          Thanks for subscribing!
-        </p>
+        <p className="mt-2 text-xs text-brand">Thanks for subscribing!</p>
       )}
     </form>
   );

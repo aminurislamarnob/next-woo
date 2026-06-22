@@ -11,15 +11,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
-export interface HeaderSearchCategory {
-  id: number;
-  name: string;
-  slug: string;
-}
+import type { MenuCategory } from "@/components/layout/categories-menu";
 
 interface HeaderSearchProps {
-  categories: HeaderSearchCategory[];
+  categories: MenuCategory[];
   className?: string;
 }
 
@@ -28,7 +23,7 @@ const ALL_CATEGORIES = "All Categories";
 export function HeaderSearch({ categories, className }: HeaderSearchProps) {
   const router = useRouter();
   const [query, setQuery] = React.useState("");
-  const [selected, setSelected] = React.useState<HeaderSearchCategory | null>(
+  const [selected, setSelected] = React.useState<MenuCategory | null>(
     null
   );
 
@@ -45,7 +40,7 @@ export function HeaderSearch({ categories, className }: HeaderSearchProps) {
     <form
       onSubmit={handleSubmit}
       className={cn(
-        "flex items-stretch w-full rounded-full border border-[#80B500] bg-background overflow-hidden",
+        "flex items-stretch w-full rounded-full border border-brand bg-background overflow-hidden",
         className
       )}
     >
@@ -83,7 +78,7 @@ export function HeaderSearch({ categories, className }: HeaderSearchProps) {
       <button
         type="submit"
         aria-label="Search"
-        className="m-1 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-[#80B500] text-white transition-colors hover:bg-[#6a9700]"
+        className="m-1 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-brand text-brand-foreground transition-colors hover:bg-brand-hover"
       >
         <Search className="h-4 w-4" />
       </button>

@@ -16,8 +16,6 @@ import { footerMenu } from "@/menu.config";
 import { siteConfig } from "@/site.config";
 import Logo from "@/public/logo.svg";
 
-const ACCENT = "#80B500";
-
 const paymentMethods = ["PayPal", "VISA", "DISCOVER", "Mastercard", "AMEX"];
 
 export function Footer() {
@@ -51,17 +49,17 @@ export function Footer() {
             </p>
             <ul className="flex flex-col gap-3 text-sm">
               <li className="flex items-center gap-2.5">
-                <MapPin className="h-4 w-4 flex-shrink-0" style={{ color: ACCENT }} />
+                <MapPin className="h-4 w-4 flex-shrink-0 text-brand" />
                 <span>{siteConfig.address}</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 flex-shrink-0" style={{ color: ACCENT }} />
+                <Phone className="h-4 w-4 flex-shrink-0 text-brand" />
                 <a href={`tel:${siteConfig.support_phone}`} className="hover:underline">
                   {siteConfig.support_phone}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="h-4 w-4 flex-shrink-0" style={{ color: ACCENT }} />
+                <Mail className="h-4 w-4 flex-shrink-0 text-brand" />
                 <a href={`mailto:${siteConfig.support_email}`} className="hover:underline">
                   {siteConfig.support_email}
                 </a>
@@ -76,8 +74,7 @@ export function Footer() {
                     aria-label={label}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground transition-colors hover:text-[var(--accent)]"
-                    style={{ ["--accent" as string]: ACCENT }}
+                    className="text-foreground transition-colors hover:text-brand"
                   >
                     <Icon className="h-4 w-4" />
                   </a>

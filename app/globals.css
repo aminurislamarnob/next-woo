@@ -29,6 +29,10 @@
     --color-primary: hsl(var(--primary));
     --color-primary-foreground: hsl(var(--primary-foreground));
 
+    --color-brand: hsl(var(--brand));
+    --color-brand-hover: hsl(var(--brand-hover));
+    --color-brand-foreground: hsl(var(--brand-foreground));
+
     --color-secondary: hsl(var(--secondary));
     --color-secondary-foreground: hsl(var(--secondary-foreground));
 
@@ -116,6 +120,11 @@
 
         --primary: 0 0% 9%;
         --primary-foreground: 0 0% 98%;
+
+        /* Organic brand green (#80B500) */
+        --brand: 78 100% 35%;
+        --brand-hover: 78 100% 30%;
+        --brand-foreground: 0 0% 100%;
 
         --secondary: 0 0% 96.1%;
         --secondary-foreground: 0 0% 9%;

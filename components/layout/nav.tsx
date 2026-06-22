@@ -17,8 +17,6 @@ interface NavProps {
   id?: string;
 }
 
-const ACCENT = "#80B500";
-
 export async function Nav({ className, id }: NavProps) {
   const categories = await getAllProductCategories();
 
@@ -53,8 +51,7 @@ export async function Nav({ className, id }: NavProps) {
             <Headset className="h-4 w-4" strokeWidth={1.5} />
             <a
               href={`tel:${siteConfig.support_phone}`}
-              className="font-semibold"
-              style={{ color: ACCENT }}
+              className="font-semibold text-brand"
             >
               {siteConfig.support_phone}
             </a>
@@ -123,8 +120,7 @@ export async function Nav({ className, id }: NavProps) {
               <Link
                 key={href}
                 href={href}
-                className="text-sm font-semibold hover:text-[var(--accent-color)] transition-colors"
-                style={{ "--accent-color": ACCENT } as React.CSSProperties}
+                className="text-sm font-semibold hover:text-brand transition-colors"
               >
                 {label}
               </Link>
@@ -136,8 +132,7 @@ export async function Nav({ className, id }: NavProps) {
               <Link
                 key={href}
                 href={href}
-                className="text-sm font-semibold hover:text-[var(--accent-color)] transition-colors"
-                style={{ "--accent-color": ACCENT } as React.CSSProperties}
+                className="text-sm font-semibold hover:text-brand transition-colors"
               >
                 {label}
               </Link>

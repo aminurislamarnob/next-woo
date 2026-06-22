@@ -47,7 +47,7 @@ export function CartDrawer({ variant = "icon" }: CartDrawerProps) {
           >
             <span className="relative">
               <ShoppingCart className="h-6 w-6" strokeWidth={1.5} />
-              <span className="absolute -top-2 -right-2 h-4 min-w-4 px-1 rounded-full bg-[#80B500] text-white text-[10px] font-medium flex items-center justify-center">
+              <span className="absolute -top-2 -right-2 h-4 min-w-4 px-1 rounded-full bg-brand text-brand-foreground text-[10px] font-medium flex items-center justify-center">
                 {itemCount > 99 ? "99+" : itemCount}
               </span>
             </span>
